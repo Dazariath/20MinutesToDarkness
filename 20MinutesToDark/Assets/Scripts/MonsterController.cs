@@ -14,16 +14,17 @@ public class MonsterController : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        player = PlayerManager.instance.player.transform;
+        // player = PlayerManager.instance.player.transform;
+        Transform player;
 
     }
 
     private void Update()
     {
-      // float distance = Vector3.Distance(player.position, transform.position);
+        // float distance = Vector3.Distance(player.position, transform.position);
 
-        
-       agent.SetDestination(player.position); 
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        agent.SetDestination(player.position); 
         
     }
 
