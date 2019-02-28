@@ -6,17 +6,22 @@ public class Respawn : MonoBehaviour
 {
    
     public Transform respawnPoint;
+    public GameObject player;
     
-   
 
-     void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Enemy")
         {
             Debug.Log("Respawn");
-            other.transform.position = respawnPoint.position;
+            RespawnFunction();
         }
 
 
+    }
+
+    void RespawnFunction()
+    {
+        player.transform.position = respawnPoint.transform.position;
     }
 }
