@@ -1,38 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody rb;
-    public float speed;
 
-    // Start is called before the first frame update
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float lookSensitivity = 3f;
+
+    private PlayerInputDetection input;
+
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        
+        input = GetComponent<PlayerInputDetection>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            rb.AddForce(Vector3.forward *( speed * 10));
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            rb.AddForce(Vector3.back * (speed * 10));
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            rb.AddForce(Vector3.left * (speed * 10));
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            rb.AddForce(Vector3.right * (speed * 10));
-        }
+        //movement
+        float xMove = Input.GetAxisRaw("Horizontal");
+        float zMove = Input.GetAxisRaw("Vertical");
+
+        Vector3 moveHorizonatal = transform.right * xMove;
+        Vector3 moveVertical = transform.forward * zMove;
+
+        Vector3 velocity = (moveHorizonatal + moveVertical).normalized * speed;
+
+        input.Move(velocity);
+
+        //Player Rotation
+        float yRot = Input.GetAxisRaw("Mouse X");
+        Vector3 _rotation = new Vector3(0f, yRot, 0f) * lookSensitivity;
+
+        input.Rotate(_rotation);
+
+        //Camera Rotation
+        float xRot = Input.GetAxisRaw("Mouse Y");
+        Vector3 _cameraRotation = new Vector3(xRot, 0f, 0f) * lookSensitivity;
+
+        input.RotateCamera(_cameraRotation);
 
     }
+
+
 }
