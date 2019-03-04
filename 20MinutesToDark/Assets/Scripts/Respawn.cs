@@ -6,8 +6,9 @@ public class Respawn : MonoBehaviour
 {
 
     public Transform respawnPoint;
-    public Transform monsterSpawn;
+   // public Transform monsterSpawn;
     public GameObject player;
+    //public GameObject monster;
 
 
     void OnTriggerEnter(Collider other)
@@ -15,7 +16,7 @@ public class Respawn : MonoBehaviour
         if (other.tag == "Enemy")
         {
             Debug.Log("Respawn");
-            other.transform.position = monsterSpawn.transform.position;
+           // monster.transform.position = monsterSpawn.transform.position;
             player.transform.position = respawnPoint.transform.position;
         }
     }
