@@ -5,10 +5,10 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
 
+    //respawn
     public Transform respawnPoint;
-   // public Transform monsterSpawn;
     public GameObject player;
-    //public GameObject monster;
+
 
 
     void OnTriggerEnter(Collider other)
@@ -16,9 +16,17 @@ public class Respawn : MonoBehaviour
         if (other.tag == "Enemy")
         {
             Debug.Log("Respawn");
-           // monster.transform.position = monsterSpawn.transform.position;
-            player.transform.position = respawnPoint.transform.position;
+
+            StartCoroutine(Wait());
+
+            
         }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(5);
+        player.transform.position = respawnPoint.transform.position;
     }
     
 }

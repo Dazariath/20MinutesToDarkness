@@ -17,8 +17,14 @@ public class MonsterRespawn : MonoBehaviour
         {
             Debug.Log("MonsterRespawn");
 
-            monster.transform.position = monsterSpawn.transform.position;
+            
         }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3);
+        monster.transform.position = monsterSpawn.transform.position;
     }
 
 }
