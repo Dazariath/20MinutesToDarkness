@@ -25,7 +25,7 @@ public class Respawn : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         player.transform.position = respawnPoint.transform.position;
     }
     

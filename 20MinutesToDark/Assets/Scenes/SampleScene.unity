@@ -69542,7 +69542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4f66032572cfa46828a45531c1f694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scream: {fileID: 8300000, guid: cb9b4e6536bb66f4889fce6b9819ef54, type: 3}
+  scream: {fileID: 8300000, guid: 06b6f1b321bce6749834e29d253983fd, type: 3}
 --- !u!82 &1480732736
 AudioSource:
   m_ObjectHideFlags: 0
@@ -69553,7 +69553,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cb9b4e6536bb66f4889fce6b9819ef54, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 06b6f1b321bce6749834e29d253983fd, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

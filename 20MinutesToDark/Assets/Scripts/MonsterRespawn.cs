@@ -23,7 +23,7 @@ public class MonsterRespawn : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         monster.transform.position = monsterSpawn.transform.position;
     }
 
