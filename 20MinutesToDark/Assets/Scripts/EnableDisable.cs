@@ -6,6 +6,7 @@ public class EnableDisable : MonoBehaviour
 {
     public GameObject dayObject;
     public GameObject nightObject;
+    public GameObject sun;
     private bool nightObjectBool;
     private bool dayObjectBool;
 
@@ -16,7 +17,7 @@ public class EnableDisable : MonoBehaviour
     {
         nightObjectBool = true;
         dayObjectBool = false;
-       
+        sun.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,9 +35,9 @@ public class EnableDisable : MonoBehaviour
 
         if(coolDownTimer == 0)
         {
+            sun.SetActive(true);
             InputDetectionLeftShift();
             InputDetectionRightShift();
-            
         }
     }
     
@@ -45,22 +46,27 @@ public class EnableDisable : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
-            coolDownTimer = coolDown;
+            
 
             Debug.Log("Left Shift");
+            //GO TO NIGHT
             if(dayObjectBool == true )
             {
                 dayObjectBool = false;
                 nightObjectBool = true;
                 dayObject.SetActive(false);
                 nightObject.SetActive(true);
+                sun.SetActive(false);
+                coolDownTimer = coolDown;
             }
+            //GO TO DAY
             else if (dayObjectBool == false)
             {
                 dayObjectBool = true;
                 nightObjectBool = false;
                 dayObject.SetActive(true);
                 nightObject.SetActive(false);
+                //canvas.SetActive(true);
             }  
         }
 
@@ -71,7 +77,7 @@ public class EnableDisable : MonoBehaviour
        
         if (Input.GetKeyDown(KeyCode.RightShift))
         {
-            coolDownTimer = coolDown;
+            
 
             Debug.Log("Right Shift");
             if (dayObjectBool == true )
@@ -80,6 +86,8 @@ public class EnableDisable : MonoBehaviour
                 nightObjectBool = true;
                 dayObject.SetActive(false);
                 nightObject.SetActive(true);
+                coolDownTimer = coolDown;
+                sun.SetActive(false);
             }
             else if(dayObjectBool == false)
             {
@@ -87,6 +95,7 @@ public class EnableDisable : MonoBehaviour
                 nightObjectBool = false;
                 dayObject.SetActive(true);
                 nightObject.SetActive(false);
+              //  canvas.SetActive(true);
             }
         }
     }
