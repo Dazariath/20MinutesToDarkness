@@ -44,11 +44,11 @@ public class EnableDisable : MonoBehaviour
 
    void InputDetectionLeftShift()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(Input.GetKeyDown(KeyCode.Q))
         {
             
 
-            Debug.Log("Left Shift");
+            Debug.Log("Q");
             //GO TO NIGHT
             if(dayObjectBool == true )
             {
@@ -75,11 +75,11 @@ public class EnableDisable : MonoBehaviour
     void InputDetectionRightShift()
     {
        
-        if (Input.GetKeyDown(KeyCode.RightShift))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             
 
-            Debug.Log("Right Shift");
+            Debug.Log("Click");
             if (dayObjectBool == true )
             {
                 dayObjectBool = false;
