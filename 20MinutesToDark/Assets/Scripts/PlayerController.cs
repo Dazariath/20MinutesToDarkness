@@ -16,7 +16,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //movement
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = 10f;
+        }
+        else if(Input.GetKey(KeyCode.RightShift))
         {
             speed = 10f;
         }
