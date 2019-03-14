@@ -17,7 +17,7 @@ public class MonsterRespawn : MonoBehaviour
         {
             Debug.Log("MonsterRespawn");
 
-            
+            StartCoroutine(Wait());
         }
     }
 
