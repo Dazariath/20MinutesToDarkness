@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
      
         //Player Rotation
         float yRot = Input.GetAxisRaw("Mouse X");
+        // roty = Mathf.Clamp(rotY, minAngle, maxAngle);
         Vector3 _rotation = new Vector3(0f, yRot, 0f) * lookSensitivity;
 
         movePlayer.Rotate(_rotation);
@@ -49,6 +50,14 @@ public class PlayerController : MonoBehaviour
 
         movePlayer.RotateCamera(_cameraRotation);
 
+
+        //float minAngle = -85;
+        //float naxAngle = 85f;
+
+        //Cursor.visible = false;
+
+       //transform.Rotate(0,rotX,0);
+      //eyes.transform.localRotation = Quaternion.Euler(rotY,0,0);
     }
 
 
