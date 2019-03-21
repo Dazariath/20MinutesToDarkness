@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DentedPixel;
+using UnityEngine.PostProcessing;
 
 public class EnableDisable : MonoBehaviour
 {
@@ -17,13 +18,17 @@ public class EnableDisable : MonoBehaviour
     public GameObject bar;
     public GameObject timer;
     public int time =5;
-    
+
+    //post processing
+    public PostProcessingBehaviour nightPP;
+
     void Start()
     {
         nightObjectBool = true;
         dayObjectBool = false;
         sun.SetActive(false);
-     //   timer.SetActive(false);
+        //post processing
+        nightPP.enabled = true;
     }
 
     // Update is called once per frame
@@ -55,6 +60,8 @@ public class EnableDisable : MonoBehaviour
         {
             if (dayObjectBool == false)
             {
+               
+                nightPP.enabled = false;
                 AnimateBar();
                 dayObjectBool = true;
                 nightObjectBool = false;
@@ -76,6 +83,8 @@ public class EnableDisable : MonoBehaviour
          
             if(dayObjectBool == false)
             {
+               
+                nightPP.enabled = false;
                 AnimateBar();
                 dayObjectBool = true;
                 nightObjectBool = false;
@@ -93,14 +102,15 @@ public class EnableDisable : MonoBehaviour
     {
         
         yield return new WaitForSeconds(5);
-
-            dayObjectBool = false;
+        
+        nightPP.enabled = true;
+        dayObjectBool = false;
             nightObjectBool = true;
             dayObject.SetActive(false);
             nightObject.SetActive(true);
             coolDownTimer = coolDown;
             sun.SetActive(false);
-          //  timer.SetActive(false);
+          
         
     }
     
@@ -114,13 +124,3 @@ public class EnableDisable : MonoBehaviour
 
     }
 }
-/*  if (dayObjectBool == true )
-           {
-               dayObjectBool = false;
-               nightObjectBool = true;
-               dayObject.SetActive(false);
-               nightObject.SetActive(true);
-               coolDownTimer = coolDown;
-               sun.SetActive(false);
-           }
-           */
