@@ -110,6 +110,9 @@ ModelImporter:
     400102: Icosphere_002
     400104: Icosphere_003
     2100000: No Name
+    2100002: Material_002
+    2100004: Material
+    2100006: Material_001
     2300000: Cube
     2300002: Cube_001
     2300004: Cube_002
