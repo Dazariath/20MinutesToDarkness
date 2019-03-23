@@ -22,6 +22,11 @@ public class EnableDisable : MonoBehaviour
     //post processing
     public PostProcessingBehaviour nightPP;
 
+    //Skybox
+    public Material skyboxNight;
+    public Material skyboxDay;
+ 
+
     void Start()
     {
         nightObjectBool = true;
@@ -29,6 +34,8 @@ public class EnableDisable : MonoBehaviour
         sun.SetActive(false);
         //post processing
         nightPP.enabled = true;
+
+        RenderSettings.skybox = skyboxNight;
     }
 
     // Update is called once per frame
@@ -60,7 +67,7 @@ public class EnableDisable : MonoBehaviour
         {
             if (dayObjectBool == false)
             {
-               
+                RenderSettings.skybox = skyboxDay;
                 nightPP.enabled = false;
                 AnimateBar();
                 dayObjectBool = true;
@@ -83,7 +90,7 @@ public class EnableDisable : MonoBehaviour
          
             if(dayObjectBool == false)
             {
-               
+                RenderSettings.skybox = skyboxDay;
                 nightPP.enabled = false;
                 AnimateBar();
                 dayObjectBool = true;
@@ -102,7 +109,9 @@ public class EnableDisable : MonoBehaviour
     {
         
         yield return new WaitForSeconds(5);
-        
+
+        RenderSettings.skybox = skyboxNight;
+
         nightPP.enabled = true;
         dayObjectBool = false;
             nightObjectBool = true;
